@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script type="text/javascript">
+  if (window.WebSocket) {
+    var ws = new WebSocket("ws://127.0.0.1:8888/ws");
+    ws.onmessage = function (e) {
+        document.getElementById("res").value = e.data;
+    }
+    ws.onopen = function (e) {
+        document.getElementById("res").value = "ws success";
+    }
+    ws.onclose = function (e) {
+        document.getElementById("res").value = "ws close";
+    }
+  } else {
+      alert("ws is not supported")
+  }
+
+  function send() {
+      if (!window.WebSocket) {
+          return;
+      }
+      if (ws.readyState == WebSocket.OPEN) {
+          ws.send(document.getElementById("msg").value);
+      } else {
+          alert("ws not connect")
+      }
+  }
+</script>
+<input type="text" name="msg" id="msg">
+<br/>
+<input type="button" value="send" onclick="send()">
+
+<br/>
+<h3>RESPONSE</h3>
+<textarea id="res" style="width: 500px; height: 300px"></textarea>
+</body>
+</html>
