@@ -1,4 +1,4 @@
-package com.mm.proto;
+package com.mm.protobuf;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;

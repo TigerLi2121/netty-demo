@@ -1,4 +1,4 @@
-package com.mm.proto;
+package com.mm.protobuf;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
@@ -37,7 +37,7 @@ public class NettyServer {
                                     .addLast(new ServerHandler());
                         }
                     });
-            ChannelFuture f = b.bind("127.0.0.1",8888).sync();
+            ChannelFuture f = b.bind("127.0.0.1", 8888).sync();
             f.channel().closeFuture().sync();
         } catch (Exception e) {
             e.printStackTrace();

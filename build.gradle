@@ -26,12 +26,13 @@ sourceSets {
     main {
         java {
             srcDir 'src/main/java'
+            exclude '**/*.proto'
         }
         // 启动服务时，注释下面
-//        proto {
-//            srcDir 'src/main/proto'
-//            include '**/*.proto'
-//        }
+        proto {
+            srcDir 'src/main/java/com/mm/protobuf/proto'
+            include '**/*.proto'
+        }
     }
 }
 
