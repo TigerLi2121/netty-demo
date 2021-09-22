@@ -30,6 +30,7 @@ public class NettyServer {
                         @Override
                         protected void initChannel(SocketChannel ch) throws Exception {
                             ch.pipeline()
+                                    // 处理半包消息
                                     .addLast(new ProtobufVarint32FrameDecoder())
                                     .addLast(new ProtobufDecoder(SubscribeReqProto.SubscribeReq.getDefaultInstance()))
                                     .addLast(new ProtobufVarint32LengthFieldPrepender())
