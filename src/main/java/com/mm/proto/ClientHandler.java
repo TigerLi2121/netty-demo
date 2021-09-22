@@ -10,13 +10,8 @@ public class ClientHandler extends ChannelInboundHandlerAdapter {
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         for (int i = 0; i < 10; i++) {
             ctx.write(SubscribeReqProto.SubscribeReq.newBuilder()
-                    .setSubReqId(i).setProductName("protobuf").setUserName("lm").setAddress("zh").build());
+                    .setSubReqId(i).setProductName("protobuf").setUserName("mm").setAddress("zh").build());
         }
-        ctx.flush();
-    }
-
-    @Override
-    public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
         ctx.flush();
     }
 

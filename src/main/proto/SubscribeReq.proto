@@ -1,6 +1,6 @@
 syntax = "proto3";
 package com.mm.proto;
-option java_outer_classname = "SubscribeReqProto1";
+option java_outer_classname = "SubscribeReqProto";
 
 message SubscribeReq{
   int32 subReqId = 1;

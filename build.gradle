@@ -1,10 +1,13 @@
 plugins {
     id "com.google.protobuf" version "0.8.17"
     id 'java'
+    id 'idea'
 }
 
 group 'com.mm'
 version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
@@ -21,13 +24,20 @@ test {
 
 sourceSets {
     main {
-        proto {
-            srcDir 'src/main/proto'
+        java {
+            srcDir 'src/main/java'
         }
+        // 启动服务时，注释下面
+//        proto {
+//            srcDir 'src/main/proto'
+//            include '**/*.proto'
+//        }
     }
 }
 
 protobuf {
+    generatedFilesBaseDir = "$projectDir/src"
+
     protoc{
         artifact = 'com.google.protobuf:protoc:3.17.3'
     }
