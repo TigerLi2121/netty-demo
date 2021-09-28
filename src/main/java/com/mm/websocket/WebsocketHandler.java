@@ -58,7 +58,7 @@ public class WebsocketHandler extends SimpleChannelInboundHandler<Object> {
 
     private void handleHttpRequest(ChannelHandlerContext ctx, FullHttpRequest req) throws Exception {
         if (!req.decoderResult().isSuccess()
-                || (!"websocket".equals(req.headers().get("Upgrade")))) {
+                || (!HttpHeaderValues.WEBSOCKET.equals(req.headers().get("Upgrade")))) {
             res(ctx, req, new DefaultFullHttpResponse(HttpVersion.HTTP_1_1, HttpResponseStatus.BAD_REQUEST));
             return;
         }
