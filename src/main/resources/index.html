@@ -10,6 +10,7 @@
   if (window.WebSocket) {
     var ws = new WebSocket("ws://127.0.0.1:8888/ws");
     ws.onmessage = function (e) {
+        console.log(e);
         document.getElementById("res").value = e.data;
     }
     ws.onopen = function (e) {
